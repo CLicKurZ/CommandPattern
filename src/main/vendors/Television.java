@@ -35,6 +35,8 @@ public class Television
      */
     private int volume;
 
+    private int lastVolume;
+
     /**
      * The index of the current channel in the channels array.
      */
@@ -58,6 +60,7 @@ public class Television
         this.channels = new ArrayList<String>(Arrays.asList(DEFAULT_CHANNELS));
         this.maxVolume = Math.abs(maxVolume);
         this.volume = 50;
+        this.lastVolume = volume;
         this.currStation = 0;
         this.isOn = false;
     }
@@ -81,6 +84,7 @@ public class Television
     {
         if (isOn && volume < maxVolume)
         {
+            lastVolume = volume;
             volume++;
             return true;
         }
@@ -98,7 +102,24 @@ public class Television
     {
         if (isOn && volume > 0)
         {
+            lastVolume = volume;
             volume--;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean muteVolume()
+    {
+        if (isOn && volume > 0)
+        {
+            lastVolume = volume;
+            volume = 0; 
+            return true;
+        }
+        else if (isOn && volume <= 0)
+        {
+            volume = lastVolume;
             return true;
         }
         return false;

@@ -19,7 +19,7 @@ public class RemoteGenerators
      */
     public static Remote tvRemote(Television tv, Scanner userInput)
     {
-        Remote tvRemote = new Remote(8);
+        Remote tvRemote = new Remote(9);
         tvRemote.setButton(new Power(tv), 0);
         tvRemote.setButton(new ChannelListing(tv), 1);
         tvRemote.setButton(new VolumeUp(tv), 2);
@@ -28,6 +28,7 @@ public class RemoteGenerators
         tvRemote.setButton(new ChannelBackward(tv), 5);
         tvRemote.setButton(new Subscribe(tv, userInput), 6);
         tvRemote.setButton(new Unsubscribe(tv, userInput), 7);
+        tvRemote.setButton(new Mute(tv), 8);
         return tvRemote;
     }
 }

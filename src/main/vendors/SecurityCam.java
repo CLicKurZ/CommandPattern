@@ -3,6 +3,12 @@ package vendors;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * New vendor class for Security Cameras.
+ * 
+ * @author Austin Blaylock
+ * @version 6.29.23
+ */
 public class SecurityCam 
 {
     public static final String[] CAM_CHANNELS = {
